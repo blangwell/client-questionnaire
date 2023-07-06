@@ -2,7 +2,6 @@
 
 import { useForm, Controller, useFieldArray } from 'react-hook-form';
 import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input/input';
-import { ErrorMessage } from "@hookform/error-message"
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
@@ -35,7 +34,7 @@ export default function Home() {
       <h1 className="text-center my-4">Client Questionnaire</h1>
       <hr/>
 
-      <h2>Tell us about yourself</h2>
+      <h2 className="mt-3">Tell us about yourself</h2>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Group className="my-2">
           <Form.Label htmlFor="name" className="fw-medium">Name</Form.Label>
@@ -111,7 +110,7 @@ export default function Home() {
         <hr />
 
 
-        <h2 className="mt-5">Tell us about your project</h2>
+        <h2 className="mt-3">Tell us about your project</h2>
         <Form.Group className="my-3">
           <Form.Label htmlFor="project-summary" className="fw-medium">In a few sentences, give us a summary of what you'd like to build.</Form.Label>          
           <Form.Control 
@@ -186,8 +185,9 @@ export default function Home() {
             {...register('domain-name')}
           />
         </Form.Group>
+        <hr />
 
-        <h2 className="mt-5">Let's talk aesthetics</h2>
+        <h2 className="mt-3">Let's talk aesthetics</h2>
         <Form.Group className="my-3">
           <Form.Label htmlFor="aesthetic" className="fw-medium">In a few words, describe the general aesthetic you want for the website.</Form.Label>
           <Form.Control 
@@ -220,8 +220,9 @@ export default function Home() {
             {...register('inspiration')}
           />
         </Form.Group>
+        <hr />
 
-        <h2 className="mt-5">Logistics</h2>
+        <h2 className="mt-3">Logistics</h2>
         <Form.Group className="my-3">
           <Form.Label htmlFor="budget" className="fw-medium">What is your approximate budget for this project?</Form.Label>
           <InputGroup>
@@ -264,8 +265,9 @@ export default function Home() {
           />
           {errors['communication'] && (<p className="text-danger">Please let us know how you prefer to communicate</p>)}
         </Form.Group>
+        <hr />
 
-        <h2 className="mt-5">Anything Else?</h2>
+        <h2 className="mt-3">Anything Else?</h2>
         <Form.Group className="my-3">
           <Form.Label htmlFor="other" className="fw-medium">Anything else you'd like for us to know before we meet?</Form.Label>
           <Form.Control 
