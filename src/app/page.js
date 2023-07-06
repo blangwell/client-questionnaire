@@ -31,7 +31,7 @@ export default function Home() {
   console.log(watch());
 
   return (
-    <Container>
+    <Container className="pt-3 pb-5">
       <h1 className="text-center my-4">Client Questionnaire</h1>
       <hr/>
 
@@ -53,7 +53,7 @@ export default function Home() {
             id="email" 
             {...register('email', { required: true })}
           />
-          {errors['email'] && (<p className="text-danger">Please enter a valid email</p>)}
+          {errors['email'] && (<p className="text-danger">Please enter a valid email address</p>)}
         </Form.Group>
         
         <Form.Group className="my-2">
@@ -74,7 +74,7 @@ export default function Home() {
             )}
           />
           {errors["cellphone"] && (
-            <p className="text-danger">Invalid Phone</p>
+            <p className="text-danger">Invalid Phone Number</p>
           )}
         </Form.Group>
 
@@ -151,7 +151,7 @@ export default function Home() {
           <Form.Control 
             id="requested-features"
             as="textarea"
-            placeholder="Image carousels, blog, shopping cart & checkout, user authentication, etc."
+            placeholder="Image carousels, blog, shopping cart & checkout, user authentication..."
             {...register('requested-features')}
           />
         </Form.Group>
@@ -162,7 +162,7 @@ export default function Home() {
           <Form.Control 
             as="textarea"
             id="existing-content"
-            placeholder="Copy, images, logos, product data, etc."
+            placeholder="Copy, images, logos, product data..."
             {...register('existing-content')}
           />
         </Form.Group>
@@ -171,22 +171,113 @@ export default function Home() {
           <Form.Label htmlFor="frequent-updates" className="fw-medium">Will your website need to be updated frequently? If so, what sort of content and how often?</Form.Label>
           <Form.Control 
             id="frequent-updates"
-            placeholder="Articles, products, posts, etc."
+            placeholder="Articles, products, posts..."
             {...register('frequent-updates', { required: true })}
           />
-          {errors['frequent-updates'] && (<p className="text-danger">Please tell us a little about your target audience</p>)}
+          {errors['frequent-updates'] && (<p className="text-danger">Please let us know about your plans for future updates</p>)}
         </Form.Group>
 
         <Form.Group className="my-3">
-          <Form.Label htmlFor="domain-name" className="fw-medium">What is your ideal domain name?</Form.Label>
+          <Form.Label htmlFor="domain-name" className="fw-medium me-2">What is your ideal domain name?</Form.Label>
+          <Form.Text muted className="fst-italic">(Optional)</Form.Text>
           <Form.Control
             id="domain-name"
-            placeholder="petespicklepalace.com, comicontables.biz, etc."
+            placeholder="petespicklepalace.com, comicontables.biz..."
             {...register('domain-name')}
           />
         </Form.Group>
+
+        <h2 className="mt-5">Let's talk aesthetics</h2>
+        <Form.Group className="my-3">
+          <Form.Label htmlFor="aesthetic" className="fw-medium">In a few words, describe the general aesthetic you want for the website.</Form.Label>
+          <Form.Control 
+            as="textarea"
+            id="aesthetic"
+            placeholder="Cute, confident, friendly yet professional..."
+            {...register('aesthetic', { required: true })}
+          />
+          {errors['aesthetic'] && (<p className="text-danger">Please tell us what kind of aesthetic you have in mind</p>)}
+        </Form.Group>
+
+        <Form.Group className="my-3">
+          <Form.Label htmlFor="style-guide" className="fw-medium">Do you have an existing style guide or any particular styles in mind for the website? If so, tell us more.</Form.Label>
+          <Form.Text muted className="fst-italic">(Optional)</Form.Text>
+          <Form.Control 
+            as="textarea"
+            id="style-guide"
+            placeholder="Color palettes, fonts..."
+            {...register('style-guide')}
+          />
+        </Form.Group>
+
+        <Form.Group className="my-3">
+          <Form.Label htmlFor="inspiration" className="fw-medium">Are there any websites you like and want to draw inspiration from? If so, add a link and tell us a little about what you like.</Form.Label>
+          <Form.Text muted className="fst-italic">(Optional)</Form.Text>
+          <Form.Control 
+            as="textarea"
+            id="inspiration"
+            placeholder=""
+            {...register('inspiration')}
+          />
+        </Form.Group>
+
+        <h2 className="mt-5">Logistics</h2>
+        <Form.Group className="my-3">
+          <Form.Label htmlFor="budget" className="fw-medium">What is your approximate budget for this project?</Form.Label>
+          <InputGroup>
+            <InputGroup.Text>$</InputGroup.Text>
+            <Form.Control 
+              id="budget"
+              placeholder="0"
+              {...register('budget', { required: true })}
+            />
+          </InputGroup>          
+          {errors['budget'] && (<p className="text-danger">Please let us know what your approximate budget is</p>)}
+        </Form.Group>
+
+        <Form.Group className="my-3">
+          <Form.Label htmlFor="timeline" className="fw-medium">What is your ideal timeline for completion?</Form.Label>
+          <Form.Control 
+            id="timeline"
+            placeholder="One month, six months, whenever..."
+            {...register('timeline', { required: true })}
+          />
+          {errors['timeline'] && (<p className="text-danger">Please let us know what your timeline looks like</p>)}
+        </Form.Group>
+
+        <Form.Group className="my-3">
+          <Form.Label htmlFor="project-updates" className="fw-medium">How often do you want to receive project updates or hold project meetings?</Form.Label>
+          <Form.Control 
+            id="project-updates"
+            placeholder="Weekly, biweekly, hourly..."
+            {...register('project-updates', { required: true })}
+          />
+          {errors['project-updates'] && (<p className="text-danger">Please let us know how often you'd like to receive updates</p>)}
+        </Form.Group>
+
+        <Form.Group className="my-3">
+          <Form.Label htmlFor="communication" className="fw-medium">How would you prefer to communicate?</Form.Label>
+          <Form.Control 
+            id="communication"
+            placeholder="Email, text, phone, Asana..."
+            {...register('communication', { required: true })}
+          />
+          {errors['communication'] && (<p className="text-danger">Please let us know how you prefer to communicate</p>)}
+        </Form.Group>
+
+        <h2 className="mt-5">Anything Else?</h2>
+        <Form.Group className="my-3">
+          <Form.Label htmlFor="other" className="fw-medium">Anything else you'd like for us to know before we meet?</Form.Label>
+          <Form.Control 
+            id="other"
+            as="textarea"
+            {...register('other')}
+          />
+        </Form.Group>
+
+
         <Button type="submit" className="mt-3">Submit</Button>
-        {Object.keys(errors).length > 0 && (<p className="text-danger">There were some errors with the form</p>)}
+        {Object.keys(errors).length > 0 && (<p className="text-danger mt-3">There were some errors with the form</p>)}
       </Form>
     </Container>
   )
