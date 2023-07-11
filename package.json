@@ -15,6 +15,7 @@
     "react-bootstrap": "^2.8.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.45.1",
-    "react-phone-number-input": "^3.2.25"
+    "react-phone-number-input": "^3.2.25",
+    "sass": "^1.63.6"
   }
 }

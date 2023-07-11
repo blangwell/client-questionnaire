@@ -30,14 +30,14 @@ export default function Home() {
   console.log(watch());
 
   return (
-    <Container className="pt-3 pb-5">
-      <h1 className="text-center my-4">Client Questionnaire</h1>
+    <Container className="pt-3 pb-5 px-md-5" style={{ maxWidth: '550px' }}>
+      <h1 className="my-4">Client Questionnaire</h1>
       <hr/>
 
-      <h2 className="mt-3">Tell us about yourself</h2>
+      <h2 className="my-3">Tell us about yourself</h2>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Group className="my-2">
-          <Form.Label htmlFor="name" className="fw-medium">Name</Form.Label>
+          <Form.Label htmlFor="name" className="fw-semibold">Name</Form.Label>
           <Form.Control 
             id="name" 
             {...register('name', { required: true })} 
@@ -46,7 +46,7 @@ export default function Home() {
         </Form.Group>
 
         <Form.Group className="my-2">
-          <Form.Label htmlFor="email" className="fw-medium">Email</Form.Label>
+          <Form.Label htmlFor="email" className="fw-semibold">Email</Form.Label>
           <Form.Control 
             type="email" 
             id="email" 
@@ -56,7 +56,7 @@ export default function Home() {
         </Form.Group>
         
         <Form.Group className="my-2">
-          <Form.Label htmlFor="cellphone" className="fw-medium me-2">Cell Phone</Form.Label>
+          <Form.Label htmlFor="cellphone" className="fw-semibold me-2">Cell Phone</Form.Label>
           <Form.Text muted className="fst-italic">(Optional)</Form.Text>
           <Controller
             control={control}
@@ -78,7 +78,7 @@ export default function Home() {
         </Form.Group>
 
         <Form.Group className="my-2">
-          <Form.Label htmlFor="business-name" className="fw-medium me-2">Business Name</Form.Label>
+          <Form.Label htmlFor="business-name" className="fw-semibold me-2">Business Name</Form.Label>
           <Form.Text muted className="fst-italic">(Optional)</Form.Text>
           <Form.Control 
             id="business-name" 
@@ -87,7 +87,7 @@ export default function Home() {
         </Form.Group>
 
         <Form.Group className="my-2"> 
-          <Form.Label htmlFor="web-links" className="fw-medium me-2">Existing Web Links</Form.Label>
+          <Form.Label htmlFor="web-links" className="fw-semibold me-2">Existing Web Links</Form.Label>
           <Form.Text muted className="fst-italic">(Optional)</Form.Text>
           {fields.map((item, index) => (
             <div key={item.id}>
@@ -111,8 +111,8 @@ export default function Home() {
 
 
         <h2 className="mt-3">Tell us about your project</h2>
-        <Form.Group className="my-3">
-          <Form.Label htmlFor="project-summary" className="fw-medium">In a few sentences, give us a summary of what you'd like to build.</Form.Label>          
+        <Form.Group className="mb-4 mt-3">
+          <Form.Label htmlFor="project-summary" className="fw-semibold">In a few sentences, give us a summary of what you'd like to build.</Form.Label>          
           <Form.Control 
             id="project-summary"
             as="textarea"
@@ -122,8 +122,8 @@ export default function Home() {
           {errors['project-summary'] && (<p className="text-danger">Please tell us about your project</p>)}
         </Form.Group>
 
-        <Form.Group className="my-3">
-          <Form.Label htmlFor="project-goals" className="fw-medium">What are your goals for this website?</Form.Label>
+        <Form.Group className="mb-4 mt-3">
+          <Form.Label htmlFor="project-goals" className="fw-semibold">What are your goals for this website?</Form.Label>
           <Form.Control 
             id="project-goals"
             placeholder="I want to improve my online presence, publish content, showcase my work..."
@@ -133,8 +133,8 @@ export default function Home() {
           {errors['project-goals'] && (<p className="text-danger">Please tell us about your goals for this project</p>)}
         </Form.Group>
 
-        <Form.Group className="my-3">
-          <Form.Label htmlFor="target-audience" className="fw-medium">Tell us more about your target audience / customer base.</Form.Label>
+        <Form.Group className="mb-4 mt-3">
+          <Form.Label htmlFor="target-audience" className="fw-semibold">Tell us more about your target audience / customer base.</Form.Label>
           <Form.Control
             id="target-audience"
             as="textarea"
@@ -144,8 +144,8 @@ export default function Home() {
           {errors['target-audience'] && (<p className="text-danger">Please tell us a little about your target audience</p>)}
         </Form.Group>
 
-        <Form.Group className="my-3">
-          <Form.Label htmlFor="requested-features" className="fw-medium me-2">Are there any specific features you're looking for?</Form.Label>
+        <Form.Group className="mb-4 mt-3">
+          <Form.Label htmlFor="requested-features" className="fw-semibold me-2">Are there any specific features you're looking for?</Form.Label>
           <Form.Text muted className="fst-italic">(Optional)</Form.Text>
           <Form.Control 
             id="requested-features"
@@ -155,8 +155,8 @@ export default function Home() {
           />
         </Form.Group>
         
-        <Form.Group className="my-3">
-          <Form.Label htmlFor="existing-content" className="fw-medium me-2">Do you have existing content for your website? If so, tell us more.</Form.Label>
+        <Form.Group className="mb-4 mt-3">
+          <Form.Label htmlFor="existing-content" className="fw-semibold me-2">Do you have existing content for your website? If so, tell us more.</Form.Label>
           <Form.Text muted className="fst-italic">(Optional)</Form.Text>
           <Form.Control 
             as="textarea"
@@ -166,8 +166,8 @@ export default function Home() {
           />
         </Form.Group>
 
-        <Form.Group className="my-3">
-          <Form.Label htmlFor="frequent-updates" className="fw-medium">Will your website need to be updated frequently? If so, what sort of content and how often?</Form.Label>
+        <Form.Group className="mb-4 mt-3">
+          <Form.Label htmlFor="frequent-updates" className="fw-semibold">Will your website need to be updated frequently? If so, what sort of content and how often?</Form.Label>
           <Form.Control 
             id="frequent-updates"
             placeholder="Articles, products, posts..."
@@ -176,8 +176,8 @@ export default function Home() {
           {errors['frequent-updates'] && (<p className="text-danger">Please let us know about your plans for future updates</p>)}
         </Form.Group>
 
-        <Form.Group className="my-3">
-          <Form.Label htmlFor="domain-name" className="fw-medium me-2">What is your ideal domain name?</Form.Label>
+        <Form.Group className="mb-4 mt-3">
+          <Form.Label htmlFor="domain-name" className="fw-semibold me-2">What is your ideal domain name?</Form.Label>
           <Form.Text muted className="fst-italic">(Optional)</Form.Text>
           <Form.Control
             id="domain-name"
@@ -188,8 +188,8 @@ export default function Home() {
         <hr />
 
         <h2 className="mt-3">Let's talk aesthetics</h2>
-        <Form.Group className="my-3">
-          <Form.Label htmlFor="aesthetic" className="fw-medium">In a few words, describe the general aesthetic you want for the website.</Form.Label>
+        <Form.Group className="mb-4 mt-3">
+          <Form.Label htmlFor="aesthetic" className="fw-semibold">In a few words, describe the general aesthetic you want for the website.</Form.Label>
           <Form.Control 
             as="textarea"
             id="aesthetic"
@@ -199,8 +199,8 @@ export default function Home() {
           {errors['aesthetic'] && (<p className="text-danger">Please tell us what kind of aesthetic you have in mind</p>)}
         </Form.Group>
 
-        <Form.Group className="my-3">
-          <Form.Label htmlFor="style-guide" className="fw-medium">Do you have an existing style guide or any particular styles in mind for the website? If so, tell us more.</Form.Label>
+        <Form.Group className="mb-4 mt-3">
+          <Form.Label htmlFor="style-guide" className="fw-semibold">Do you have an existing style guide or any particular styles in mind for the website? If so, tell us more.</Form.Label>
           <Form.Text muted className="fst-italic">(Optional)</Form.Text>
           <Form.Control 
             as="textarea"
@@ -210,8 +210,8 @@ export default function Home() {
           />
         </Form.Group>
 
-        <Form.Group className="my-3">
-          <Form.Label htmlFor="inspiration" className="fw-medium">Are there any websites you like and want to draw inspiration from? If so, add a link and tell us a little about what you like.</Form.Label>
+        <Form.Group className="mb-4 mt-3">
+          <Form.Label htmlFor="inspiration" className="fw-semibold">Are there any websites you like and want to draw inspiration from? If so, add a link and tell us a little about what you like.</Form.Label>
           <Form.Text muted className="fst-italic">(Optional)</Form.Text>
           <Form.Control 
             as="textarea"
@@ -223,8 +223,8 @@ export default function Home() {
         <hr />
 
         <h2 className="mt-3">Logistics</h2>
-        <Form.Group className="my-3">
-          <Form.Label htmlFor="budget" className="fw-medium">What is your approximate budget for this project?</Form.Label>
+        <Form.Group className="mb-4 mt-3">
+          <Form.Label htmlFor="budget" className="fw-semibold">What is your approximate budget for this project?</Form.Label>
           <InputGroup>
             <InputGroup.Text>$</InputGroup.Text>
             <Form.Control 
@@ -236,8 +236,8 @@ export default function Home() {
           {errors['budget'] && (<p className="text-danger">Please let us know what your approximate budget is</p>)}
         </Form.Group>
 
-        <Form.Group className="my-3">
-          <Form.Label htmlFor="timeline" className="fw-medium">What is your ideal timeline for completion?</Form.Label>
+        <Form.Group className="mb-4 mt-3">
+          <Form.Label htmlFor="timeline" className="fw-semibold">What is your ideal timeline for completion?</Form.Label>
           <Form.Control 
             id="timeline"
             placeholder="One month, six months, whenever..."
@@ -246,8 +246,8 @@ export default function Home() {
           {errors['timeline'] && (<p className="text-danger">Please let us know what your timeline looks like</p>)}
         </Form.Group>
 
-        <Form.Group className="my-3">
-          <Form.Label htmlFor="project-updates" className="fw-medium">How often do you want to receive project updates or hold project meetings?</Form.Label>
+        <Form.Group className="mb-4 mt-3">
+          <Form.Label htmlFor="project-updates" className="fw-semibold">How often do you want to receive project updates or hold project meetings?</Form.Label>
           <Form.Control 
             id="project-updates"
             placeholder="Weekly, biweekly, hourly..."
@@ -256,8 +256,8 @@ export default function Home() {
           {errors['project-updates'] && (<p className="text-danger">Please let us know how often you'd like to receive updates</p>)}
         </Form.Group>
 
-        <Form.Group className="my-3">
-          <Form.Label htmlFor="communication" className="fw-medium">How would you prefer to communicate?</Form.Label>
+        <Form.Group className="mb-4 mt-3">
+          <Form.Label htmlFor="communication" className="fw-semibold">How would you prefer to communicate?</Form.Label>
           <Form.Control 
             id="communication"
             placeholder="Email, text, phone, Asana..."
@@ -268,8 +268,8 @@ export default function Home() {
         <hr />
 
         <h2 className="mt-3">Anything Else?</h2>
-        <Form.Group className="my-3">
-          <Form.Label htmlFor="other" className="fw-medium">Anything else you'd like for us to know before we meet?</Form.Label>
+        <Form.Group className="mb-4 mt-3">
+          <Form.Label htmlFor="other" className="fw-semibold">Anything else you'd like for us to know before we meet?</Form.Label>
           <Form.Control 
             id="other"
             as="textarea"
@@ -278,7 +278,7 @@ export default function Home() {
         </Form.Group>
 
 
-        <Button type="submit" className="mt-3">Submit</Button>
+        <Button size="lg" type="submit" className="mt-3 me-auto">Submit</Button>
         {Object.keys(errors).length > 0 && (<p className="text-danger mt-3">There were some errors with the form</p>)}
       </Form>
     </Container>
