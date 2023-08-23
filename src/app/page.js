@@ -31,14 +31,12 @@ export default function Home() {
   });
 
   const onSubmit = async (data) => {
-//    try {
-//      const submission = await axios.post('https://formspree.io/f/mjvqwrdz', { data });
-//      console.log('POST successful -> ', submission);
+    try {
+      const submission = await axios.post('https://formspree.io/f/mjvqwrdz', { data });
       setShowModal(true);
-//    } catch (err) {
-//      console.error('There was an error POSTing -> ', err);
-//    }
-
+    } catch (err) {
+      console.error('There was an error POSTing -> ', err);
+    }
   }
 
   return (
@@ -305,7 +303,7 @@ export default function Home() {
             Form submitted 
           </p>
           <p className="mb-2">We will get in touch with you shortly!</p>
-          { /* <p className="mb-0">Now get out of here. Go <a href="https://www.gutenberg.org/files/28054/old/28054-pdf.pdf">read a book</a> or something...</p> */ }
+          <p className="mb-0">Now get out of here. Go <a href="https://www.gutenberg.org/files/28054/old/28054-pdf.pdf">read a book</a> or something...</p>
         </Modal.Body>
       </Modal>
     </Container>
