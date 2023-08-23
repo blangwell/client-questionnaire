@@ -1,18 +1,23 @@
 'use client'
 
+import { useState } from 'react';
 import { useForm, Controller, useFieldArray } from 'react-hook-form';
 import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input/input';
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
-import Container from 'react-bootstrap/Container'
-import InputGroup from 'react-bootstrap/InputGroup'
-import 'bootstrap/dist/css/bootstrap.css'
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import InputGroup from 'react-bootstrap/InputGroup';
+import Modal from 'react-bootstrap/Modal';
+import { CheckCircle } from 'react-bootstrap-icons';
+import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.css';
 
 export default function Home() {
+  const [showModal, setShowModal] = useState(false);
+
   const { 
     register, 
     handleSubmit, 
-    watch, 
     control, 
     formState: {errors} 
   } = useForm({
@@ -25,9 +30,16 @@ export default function Home() {
     name: 'web-links'
   });
 
-  const onSubmit = data => console.log(data);
+  const onSubmit = async (data) => {
+//    try {
+//      const submission = await axios.post('https://formspree.io/f/mjvqwrdz', { data });
+//      console.log('POST successful -> ', submission);
+      setShowModal(true);
+//    } catch (err) {
+//      console.error('There was an error POSTing -> ', err);
+//    }
 
-  console.log(watch());
+  }
 
   return (
     <Container className="pt-3 pb-5 px-md-5" style={{ maxWidth: '550px' }}>
@@ -281,6 +293,21 @@ export default function Home() {
         <Button size="lg" type="submit" className="mt-3 me-auto">Submit</Button>
         {Object.keys(errors).length > 0 && (<p className="text-danger mt-3">There were some errors with the form</p>)}
       </Form>
+      <Modal 
+        show={showModal}
+        onHide={() => setShowModal(false)}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Body>
+          <p className="h5">
+            <CheckCircle className="me-2" color="green" size={24} />
+            Form submitted 
+          </p>
+          <p className="mb-2">We will get in touch with you shortly!</p>
+          { /* <p className="mb-0">Now get out of here. Go <a href="https://www.gutenberg.org/files/28054/old/28054-pdf.pdf">read a book</a> or something...</p> */ }
+        </Modal.Body>
+      </Modal>
     </Container>
   )
 }
